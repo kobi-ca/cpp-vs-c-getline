@@ -152,17 +152,17 @@ int main(int argc, char *argv[]) {
     std::clog << "warmup\n";
     test_load_file_c(argv[1]);
     test_load_file_cpp_original(argv[1]);
-    test_load_file_cpp_read(argv[1]);
-    test_load_file_cpp_pubsetbuf(argv[1]);
+//    test_load_file_cpp_read(argv[1]);
+//    test_load_file_cpp_pubsetbuf(argv[1]);
     print();
-    std::clog << "actual\n";
-    ++current;
-    test_load_file_c(argv[1]);
-    test_load_file_cpp_original(argv[1]);
-    constexpr auto dont_sync_w_io = true;
-    test_load_file_cpp_original(argv[1], dont_sync_w_io);
-    test_load_file_cpp_read(argv[1]);
-    test_load_file_cpp_pubsetbuf(argv[1]);
-    print();
+//    std::clog << "actual\n";
+//    ++current;
+//    test_load_file_c(argv[1]);
+//    test_load_file_cpp_original(argv[1]);
+//    constexpr auto dont_sync_w_io = true;
+//    test_load_file_cpp_original(argv[1], dont_sync_w_io);
+//    test_load_file_cpp_read(argv[1]);
+//    test_load_file_cpp_pubsetbuf(argv[1]);
+//    print();
     return 0;
 }

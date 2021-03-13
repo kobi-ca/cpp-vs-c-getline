@@ -45,3 +45,30 @@ http://www.brendangregg.com/perf.html
 https://stackoverflow.com/questions/50489287/how-to-print-malloc-size-function-with-perf-probe
 
 https://developers.redhat.com/blog/2019/04/23/how-to-use-the-linux-perf-tool-to-count-software-events/
+
+
+# Using uftrace with apt install
+➜  fgets git:(main) ✗ uftrace report | head
+  Total time   Self time       Calls  Function
+  ==========  ==========  ==========  ====================
+  647.449 ms    1.174 us           1  main
+  647.421 ms  332.737 ms           1  _GLOBAL__N_1::test_load_file_c
+  310.358 ms  303.685 ms     5429254  fgets
+   10.700 ms   10.700 ms         109  linux:schedule
+  252.784 us   22.865 us         164  std::operator<<
+  221.048 us  221.048 us         164  std::__ostream_insert
+   48.015 us    0.231 us           1  _GLOBAL__sub_I_main
+   47.784 us    1.007 us           1  __static_initialization_and_destruction_0
+➜  fgets git:(main) ✗ cd ../getline 
+➜  getline git:(main) ✗ uftrace report | head
+  Total time   Self time       Calls  Function
+  ==========  ==========  ==========  ====================
+    3.188  s    1.020 us           1  main
+    3.188  s  349.174 ms           1  _GLOBAL__N_1::test_load_file_cpp_original
+    2.049  s  916.580 ms    10858508  std::getline
+    1.106  s  279.089 ms     5429254  std::basic_ios::operator(cast)
+  827.688 ms  620.005 ms     5429254  std::basic_ios::fail
+  815.107 ms  606.584 ms     5429254  std::basic_ios::widen
+  105.145 ms  105.136 ms     5429254  std::ctype::widen
+  104.454 ms  104.448 ms     5429254  std::basic_ios::rdstate
+
